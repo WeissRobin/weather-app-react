@@ -1,0 +1,37 @@
+@import './reset.scss';
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+.dm-sans {
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+
+body {
+    background-color: black;
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+.weather-app-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    .weather-app-grid {
+        display: grid;
+        grid-template-areas: 
+        'time main'
+        'forecast forecast';
+        width: 1150px;
+        height: 850px;
+        border-radius: 10px;
+        box-shadow: rgba(#f30098, .5) 0px 0px 200px 1px;
+        background-size: cover;
+        background-image: url('../assets/bg.jpg');
+        padding: 100px;
+    }
+}

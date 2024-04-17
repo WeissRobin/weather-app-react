@@ -1,0 +1,22 @@
+.weather-main-info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    text-align: right;
+    .ph-planet {
+        font-size: 6rem;
+    }
+    .type {
+        font-size: 4.5rem;
+        font-weight: 600;
+    }
+    .location {
+        font-size: 2rem;
+        opacity: .7;
+    }
+    .degrees {
+        font-size: 4.5rem;
+        margin-top: .5em;
+        font-weight: 700;
+    }
+}

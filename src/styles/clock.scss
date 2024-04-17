@@ -1,0 +1,17 @@
+.current {
+    color: white;
+    .time-wrapper {
+        .time {
+            font-size: 2.5rem;
+            font-weight: 700;
+            padding-right: .3em;
+        }
+        .type {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+    }
+    .day {
+        font-size: 2rem;
+    }
+}
