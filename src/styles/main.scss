@@ -23,15 +23,28 @@ body {
 
     .weather-app-grid {
         display: grid;
-        grid-template-areas: 
-        'time main'
-        'forecast forecast';
+        grid-template-columns: auto auto;
+        grid-template-rows: 100px auto auto;
         width: 1150px;
         height: 850px;
         border-radius: 10px;
         box-shadow: rgba(#f30098, .5) 0px 0px 200px 1px;
         background-size: cover;
         background-image: url('../assets/bg.jpg');
-        padding: 100px;
+        padding-inline: 100px;
+        .search-section {
+            grid-row: 1;
+            grid-column: 1 / span 2;
+            align-content: center;
+            margin: auto;
+        }
+        .main-content-section {
+            grid-row: 2;
+            grid-column: 2;
+        }
+        .time-section {
+            grid-row: 2;
+            grid-column: 1;
+        }
     }
 }

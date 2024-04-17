@@ -1,0 +1,36 @@
+.search-box {
+    position: relative;
+    .search {
+        display: block;
+        margin: auto;
+        border: 0px solid transparent;
+        border-radius: 5px;
+        padding: .5em .7em;
+        font-size: 1.4rem;
+        transition: all .4s ease;
+    
+        &:hover {
+            border: 1px solid hsl(318, 70%, 55%);
+        }
+    
+        &:focus {
+            outline: none;
+            box-shadow: #ff1cbb 0px 0px 10px;
+        }
+    }
+    .suggestions {
+        position: absolute;
+        background-color: white;
+        border-radius: 5px;
+        border-top-right-radius: 0px;
+        width: 100%;
+        .suggestion {
+            padding: 5px;
+            font-size: 1.4rem;
+        }
+    }
+}
+
+.selected {
+    background-color: rgba(#ff1cbb, .1);
+}
