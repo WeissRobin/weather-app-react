@@ -2,19 +2,21 @@ import { useState, useEffect } from 'react';
 import '../styles/search.scss';
 import axios from 'axios';
 
-export const Search = () => {
+export const Search = ({ sendData }) => {
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
 
     const handleInput = (input) => {
         setValue(input);
-        axios.get(`http://api.weatherapi.com/v1/search.json?key=b301fae74e5c4e42926164325232512&q=${input}`)
+        if (input) {
+            axios.get(`https://api.weatherapi.com/v1/search.json?key=b301fae74e5c4e42926164325232512&q=${input}`)
             .then(res => {
                 const cities = res.data.map(city => `${city.name}, ${city.region}`);
                 setSuggestions(cities);
             })
             .catch(err => setSuggestions([]));
+        }
     }
 
     const handleKeyDown = (event) => {
@@ -29,7 +31,19 @@ export const Search = () => {
         else if (event.key === 'Enter') {
             if (selectedSuggestionIndex !== -1) {
                 setValue(suggestions[selectedSuggestionIndex]);
+                getWeatherCurr(suggestions[selectedSuggestionIndex]);
+                setSuggestions([]);
             }
+        }
+    }
+
+    const getWeatherCurr = (input) => {
+        if (input) {
+            axios.get(`https://api.weatherapi.com/v1/forecast.json?key=b301fae74e5c4e42926164325232512&q=${input}&days=7&aqi=no&alerts=no`)
+            .then(res => {
+                sendData(res.data);
+            })
+            .catch(err => console.log(err));
         }
     }
 
@@ -43,13 +57,14 @@ export const Search = () => {
                 value={value} 
                 onChange={(e) => handleInput(e.target.value)} 
                 onKeyDown={handleKeyDown}
-                className="search dm-sans"/>
+                className="search dm-sans"
+                placeholder='Search a city...'/>
             <ul className='suggestions'>
                 {suggestions.map((sugg, index) => (
                     <li 
                         key={index} 
                         className={`suggestion dm-sans ${index === selectedSuggestionIndex ? 'selected' : ''}`}
-                        onClick={() => console.log('Selected suggestion:', sugg)}>
+                        onClick={() => { setValue(sugg); getWeatherCurr(value); setSuggestions([]); }}>
                         {sugg}
                     </li>
                 ))}
