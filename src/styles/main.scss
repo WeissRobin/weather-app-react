@@ -28,6 +28,7 @@ body {
         grid-template-areas: 
         'search search'
         'time main'
+        'detailed main'
         'forecast forecast';
         width: 1150px;
         height: 850px;
@@ -42,6 +43,9 @@ body {
         }
         .time-section {
             grid-area: time;
+        }
+        .weather-detailed {
+            grid-area: detailed;
         }
         .main-content-section {
             grid-area: main;

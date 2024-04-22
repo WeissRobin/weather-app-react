@@ -1,6 +1,6 @@
 import '../styles/forecast_day.scss';
 
-export const Forecast = ({ condition, temp, code, day }) => {
+export const Forecast = ({ temp, code, day }) => {
 
     const getDayOfWeek = (dateString) => {
         const dateParts = dateString.split('-');
@@ -8,7 +8,7 @@ export const Forecast = ({ condition, temp, code, day }) => {
         const day = parseInt(dateParts[2]);
         const year = parseInt(dateParts[0]);
         const dayIndex = new Date(year, month, day).getDay();
-        const daysOfWeek = ['SUN', 'TODAY', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+        const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
         return daysOfWeek[dayIndex];
     };
 

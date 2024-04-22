@@ -1,0 +1,19 @@
+.weather-detailed-info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    .detailed-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        .icon {
+            width: 30px;
+            filter: invert(1);
+        }
+        .value {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 600;
+        }
+    }
+}
