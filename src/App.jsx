@@ -46,11 +46,11 @@ function App() {
           <div className='time-section'>
             <Clock />
           </div>
-          <div className='weather-detailed'>
-            <DetailedWeather humidity={humidity} wind={wind} index={index}/>
-          </div>
           <div className='main-content-section'>
             <WeatherMain name={name} country={country} condition={condition} temp={temp}/>
+          </div>
+          <div className='weather-detailed'>
+            <DetailedWeather humidity={humidity} wind={wind} index={index}/>
           </div>
           <div className='forecast-section'>
             {forecastDays.map((fDay, index) => {

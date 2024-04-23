@@ -22,21 +22,18 @@ body {
     height: 100%;
 
     .weather-app-grid {
-        display: grid;
-        grid-template-columns: auto auto;
-        grid-template-rows: 100px auto auto;
-        grid-template-areas: 
-        'search search'
-        'time main'
-        'detailed main'
-        'forecast forecast';
-        width: 1150px;
-        height: 850px;
+        display: flex;
+        flex-direction: column;
+        max-width: 1150px;
+        max-height: 850px;
+        height: 100%;
+        width: 100%;
         border-radius: 10px;
         box-shadow: rgba(#f30098, .5) 0px 0px 200px 1px;
         background-size: cover;
+        background-position: center;
         background-image: url('../assets/bg.jpg');
-        padding-inline: 100px;
+        padding-inline: 3em;
         .search-section {
             grid-area: search;
             margin-block: auto;
@@ -57,5 +54,22 @@ body {
             align-items: center;
             margin-top: 50px;
         }
+    }
+}
+
+@media screen and (min-width: 700px) {
+    .weather-app-grid {
+        display: grid !important;
+        grid-template-columns: auto auto;
+        grid-template-rows: 100px auto auto;
+        grid-template-areas: 
+        'search search'
+        'time main'
+        'detailed main'
+        'forecast forecast';
+        padding-inline: 10em !important;
+    }
+    .weather-main-info {
+        text-align: right !important;
     }
 }
