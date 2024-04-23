@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import '../styles/search.scss';
 import axios from 'axios';
 
-export const Search = ({ sendData }) => {
+export const Search = ({ sendData, location }) => {
     const [value, setValue] = useState('');
     const [suggestions, setSuggestions] = useState([]);
     const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
@@ -50,6 +50,10 @@ export const Search = ({ sendData }) => {
     useEffect(() => {
         setSelectedSuggestionIndex(-1);
     }, [suggestions]);
+
+    useEffect(() => {
+        getWeatherCurr(location);
+    }, [location]);
 
     return (
         <div className='search-box'>

@@ -22,12 +22,14 @@ body {
     height: 100%;
 
     .weather-app-grid {
-        display: flex;
-        flex-direction: column;
-        max-width: 1150px;
-        max-height: 850px;
+        display: grid;
+        grid-template-areas: 
+        'search'
+        'time'
+        'main'
+        'detailed'
+        'forecast';
         height: 100%;
-        width: 100%;
         border-radius: 10px;
         box-shadow: rgba(#f30098, .5) 0px 0px 200px 1px;
         background-size: cover;
@@ -59,15 +61,17 @@ body {
 
 @media screen and (min-width: 700px) {
     .weather-app-grid {
-        display: grid !important;
+        display: grid;
         grid-template-columns: auto auto;
         grid-template-rows: 100px auto auto;
         grid-template-areas: 
         'search search'
         'time main'
         'detailed main'
-        'forecast forecast';
+        'forecast forecast' !important;
         padding-inline: 10em !important;
+        width: 1150px !important;
+        height: 850px !important;
     }
     .weather-main-info {
         text-align: right !important;
